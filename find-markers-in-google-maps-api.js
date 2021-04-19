@@ -2,7 +2,7 @@ function initMap() {
   const map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 41.0637990923183, lng: 28.78382109918516},
           zoom: 13,
-		  disableDefaultUI: !0, scaleControl: !0, fullscreenControl: !0,
+	  disableDefaultUI: !0, scaleControl: !0, fullscreenControl: !0,
           clickableIcons: false,
           minZoom: 3,
           maxZoom: 20
@@ -24,7 +24,7 @@ function initMap() {
                  map: map,
                  center: avm,
                  radius: radius,
-		         clickable: false
+		 clickable: false
   });
   var check = checkCircleInMarker(stadium, avm, radius);
   if (check) alert("In the region");
