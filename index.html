@@ -6,7 +6,7 @@
 <title>Find markers in Google Maps API circle</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtMfoLcLB-xfPovTDPjcxP4H5Nag3phUI&callback=initMap&libraries=geometry&v=weekly" defer></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap&libraries=geometry&v=weekly" defer></script>
 <style>#map{height:500px;width:800px;border:1px solid #000}img{width:32px;height:32px;border:none;margin-bottom:14px;margin-top:14px}</style>
 </head>
 <body>
@@ -30,44 +30,5 @@
 $( document ).ready(function() {
     $("a").attr("target","_blank");
 });
-function initMap() {	 
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 41.0637990923183, lng: 28.78382109918516},
-          zoom: 13,
-		  disableDefaultUI: !0, scaleControl: !0, fullscreenControl: !0,
-          clickableIcons: false,
-          minZoom: 3,
-          maxZoom: 20
-  });
-  var stadium = new google.maps.LatLng(41.07444895969522, 28.765437643877718);
-  var avm = new google.maps.LatLng(41.06320196648882, 28.80718122666873);
-  var radius=2500;
-  var marker = new google.maps.Marker({
-        position: stadium,
-        map: map,
-        title: 'Selected location'
-  });
-  const regionCircle = new google.maps.Circle({
-                 strokeColor: "#FF0000",
-                 strokeOpacity: 0.8,
-                 strokeWeight: 2,
-                 fillColor: "#FF0000",
-                 fillOpacity: 0.19,
-                 map: map,
-                 center: avm,
-                 radius: radius,
-		         clickable: false
-  });
-  var check = checkCircleInMarker(stadium, avm, radius);
-  if (check) alert("In the region");
-  else alert("Out the region");
-}
-initMap();
-function checkCircleInMarker(markerPosition, circlePosition, radius) {
-  var km = radius/1000;
-  var kx = Math.cos(Math.PI * circlePosition.lat / 180) * 111;
-  var dx = Math.abs(circlePosition.lng - markerPosition.lng) * kx;
-  var dy = Math.abs(circlePosition.lat - markerPosition.lat) * 111;
-  return Math.sqrt(dx * dx + dy * dy) <= km;
-}
 </script>
+<script src="find-markers-in-google-maps-api.js"></script>
