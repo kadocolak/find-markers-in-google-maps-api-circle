@@ -13,7 +13,7 @@ function initMap() {
   var marker = new google.maps.Marker({
         position: stadium,
         map: map,
-        title: 'Selected location'
+        title: 'Atatürk Olimpiyat Stadyumu'
   });
   const regionCircle = new google.maps.Circle({
                  strokeColor: "#FF0000",
